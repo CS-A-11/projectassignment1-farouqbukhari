@@ -1,0 +1,36 @@
+extends ../layout.pug
+block content
+    .container
+      if products
+        .row 
+          .col-xs-12.col-sm-12.col-md-12.col-lg-12
+            ul.list-group
+              each product in products
+                li.list-group-item
+                  span.badge.badge-danger.float-right.cartBadge= product.qty 
+                  |  
+                  strong=  product.item.title  
+                  |  
+                  span.label.label-danger= product.price 
+                  |  
+                  .btn-group.float-right
+                    button.btn.btn-danger.cartBtn(type='button')
+                      a.cartLink(href='') Reduce by 1 
+                    button.btn.btn-danger.cartBtn(type='button')
+                      a.cartLink(href='') Remove all
+        .row 
+          .col-xs-12.col-sm-12.col-md-12.col-lg-12
+            strong Total: 
+            strong=  totalPrice
+        br
+        .row 
+          .col-xs-12.col-sm-12.col-md-12.col-lg-12
+            button.btn.btn-danger(type="button") Checkout
+      else
+        .row 
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12
+          h2 No Items in Cart
+      
+      
+
+                  
